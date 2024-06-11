@@ -8,30 +8,27 @@ public class Exercicio01Dia11 {
 		// TODO Auto-generated method stub
 
 		int[] numVetor = { 1, 5, 10, 6, 8, 4, 7, 9, 2, 3 };
-		int num, posicao;
 
 		Scanner leia = new Scanner(System.in);
 
-		System.out.println("\nDigite o número que deseja encontrar: ");
-		num = leia.nextInt();
+		System.out.print("\nDigite um número para pesquisar: ");
+		int numero = leia.nextInt();
 
-		posicao = pesquisarNumero(numVetor, num);
+		int i = 0;
+		boolean encontrado = false;
 
-		if (posicao != -1) {
-			System.out.println("\nO número " + num + " foi encontrado e está na posição: " + posicao);
-		} else {
-			System.out.println("\nO número " + num + " não foi encontrado!");
-		}
-	}
-
-	private static int pesquisarNumero(int[] numVetor, int num) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < numVetor.length; i++) {
-			if (numVetor[i] == num) {
-				return i;
+		while (i < numVetor.length && !encontrado) {
+			if (numVetor[i] == numero) {
+				encontrado = true;
+			} else {
+				i++;
 			}
 		}
-		return -1;
-	}
 
+		if (encontrado) {
+			System.out.println("\nO número " + numero + " está na posição " + i + " do vetor.");
+		} else {
+			System.out.println("\nO número " + numero + " não foi encontrado!");
+		}
+	}
 }
